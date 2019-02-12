@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="pad_button">64dp</dimen>
+    <dimen name="padding_for_pad_layout">16dp</dimen>
+    <dimen name="padding_for_pad_button">3dp</dimen>
+    <dimen name="toolbar_player_margin">32dp</dimen>
+    <dimen name="context_menu_btn_width">92dp</dimen>
+</resources>

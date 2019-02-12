@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activities.MusicEditorActivity">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/music_editor_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/system_mode_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/you_in_offline_mode"
+        android:textColor="@color/colorRed"
+        android:textSize="@dimen/default_text_size"
+        android:layout_alignParentBottom="true"/>
+
+    <LinearLayout
+        android:id="@+id/media_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/drawable_toolbar_player_style"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:padding="@dimen/padding_for_pad_button"
+        android:layout_margin="@dimen/fab_margin">
+
+        <Button
+            android:alpha="0.55"
+            android:id="@+id/start_music_recorder"
+            android:layout_width="@dimen/pad_button"
+            android:layout_height="@dimen/pad_button"
+            android:background="@drawable/ic_start_recorder"/>
+        <Button
+            android:alpha="0.55"
+            android:id="@+id/stop_music_recorder"
+            android:layout_width="@dimen/pad_button"
+            android:layout_height="@dimen/pad_button"
+            android:background="@drawable/ic_stop_recorder"
+            android:visibility="invisible"
+            android:enabled="false"/>
+        <Button
+            android:alpha="0.55"
+            android:id="@+id/stop_music_player"
+            android:layout_width="@dimen/pad_button"
+            android:layout_height="@dimen/pad_button"
+            android:background="@drawable/ic_stop_player"
+            android:visibility="invisible"
+            android:enabled="false"/>
+        <Button
+            android:alpha="0.55"
+            android:id="@+id/start_music_player"
+            android:layout_width="@dimen/pad_button"
+            android:layout_height="@dimen/pad_button"
+            android:background="@drawable/ic_start_player"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

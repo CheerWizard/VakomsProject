@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape android:shape="oval">
+            <gradient android:endColor="@color/colorBlack"
+                android:startColor="@color/colorBlack"
+                android:centerColor="@color/colorPurple"/>
+            <size android:height="@dimen/start_activity_button"
+                android:width="@dimen/start_activity_button"/>
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <gradient android:endColor="@color/colorPurple"
+                android:startColor="@color/colorPurple"
+                android:centerColor="@color/colorBlack"/>
+            <size android:height="@dimen/start_activity_button"
+                android:width="@dimen/start_activity_button"/>
+        </shape>
+    </item>
+</selector>

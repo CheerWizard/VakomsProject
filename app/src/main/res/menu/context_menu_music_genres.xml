@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/dubstep"
+        android:title="@string/dubstep"/>
+    <item android:id="@+id/rock"
+        android:title="@string/rock"/>
+    <item android:id="@+id/metallic"
+        android:title="@string/metallic"/>
+    <item android:id="@+id/hip_hop"
+        android:title="@string/hip_hop"/>
+    <item android:id="@+id/classical"
+        android:title="@string/classical"/>
+
+</menu>

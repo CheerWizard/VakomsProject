@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/colorPurple" android:state_pressed="true"/>
+    <item>
+        <shape android:shape="rectangle">
+            <gradient android:centerColor="@color/colorBlack"
+                android:startColor="@color/colorPurple"
+                android:endColor="@color/colorPurple"/>
+            <stroke android:width="2dp"
+                android:color="@color/colorPurple"/>
+            <corners android:radius="8dp"/>
+        </shape>
+    </item>
+</selector>

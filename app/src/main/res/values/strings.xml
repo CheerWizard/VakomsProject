@@ -1,0 +1,147 @@
+<resources>
+    <string name="app_name">ArtGenerator</string>
+    <string name="title_activity_music_album">MusicAlbumActivity</string>
+    <string name="settings">Settings</string>
+    <string name="exit">Exit</string>
+    <string name="profile">Profile</string>
+    <string name="editor">Editor</string>
+    <string name="record_name">Record Name</string>
+    <string name="sample">Sample</string>
+    <string name="search_path">...</string>
+    <string name="accept">Accept</string>
+    <string name="save">Save</string>
+    <string name="errorPermission">Sorry , but you have denied permission to your storage! Please allow them!</string>
+    <string name="errorFileDirectory">Sorry for system errors! Please try again later!</string>
+    <string name="errorFileNameIsEmpty">Please insert not empty name!</string>
+    <string name="fileNameNotFound">Sorry , but inserted name does not exist!</string>
+    <string name="duration">Duration</string>
+    <string name="sample_name">Name</string>
+    <string name="priority">Priority</string>
+    <string name="listen">Listen</string>
+    <string name="build">Build</string>
+    <string name="left_volume">Left volume</string>
+    <string name="right_volume">Right volume</string>
+    <string name="loop">Loop</string>
+    <string name="rate">Rate</string>
+    <string name="default_priority">5</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    //sound names
+    <string-array name="drum_names">
+        //drums
+        <item>kick_1</item>
+        <item>kick_2</item>
+        <item>snare_1</item>
+        <item>snare_2</item>
+        <item>hat</item>
+        <item>clap</item>
+        <item>crash</item>
+        <item>mod_crash</item>
+        <item>reverse_crash</item>
+        <item>percussion_1</item>
+        <item>percussion_2</item>
+        <item>shaker</item>
+        <item>fx_1</item>
+        <item>fx_2</item>
+        <item>fx_3</item>
+        <item>fx_4</item>
+        <item>fx_5</item>
+        <item>fx_6</item>
+        <item>fx_7</item>
+        <item>fx_8</item>
+    </string-array>
+    <string-array name="bass_names">
+        //basses
+        <item>main_bass_1</item>
+        <item>main_bass_2</item>
+        <item>main_bass_3</item>
+        <item>main_bass_4</item>
+        <item>main_bass_5</item>
+        <item>main_bass_6</item>
+        <item>main_bass_7</item>
+        <item>main_bass_8</item>
+        <item>main_bass_9</item>
+        <item>main_bass_10</item>
+        <item>main_bass_11</item>
+        <item>main_bass_12</item>
+        <item>background_bass_1</item>
+        <item>background_bass_2</item>
+        <item>background_bass_3</item>
+        <item>background_bass_4</item>
+        <item>background_bass_5</item>
+        <item>background_bass_6</item>
+        <item>vocal_effect_1</item>
+        <item>vocal_effect_2</item>
+    </string-array>
+    <string name="emailException">Email is empty!Please write not empty email!</string>
+    <string name="passwordException">Email is empty!Please write not empty email!</string>
+    <string name="emailAndPasswordExist">Current email or password already exist!</string>
+    <string name="emailAndPasswordNotExist">Current email or password does not exist!</string>
+    <string name="startActivity">START</string>
+    <string name="onlineMode">Online Mode</string>
+    <string name="offlineMode">Offline Mode</string>
+    <string name="yourName">Your name :</string>
+    <string name="yourEmail">Your email :</string>
+    <string name="yourPassword">Your password :</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="yourFavouriteMusicGenre">What is your favourite music genre?</string>
+    <string name="rock">Rock</string>
+    <string name="hip_hop">Hip-Hop</string>
+    <string name="classical">Classical</string>
+    <string name="metallic">Metallic</string>
+    <string name="dubstep">Dubstep</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="already_registered">Already registered?</string>
+    <string name="not_already_registered">Not registered yet?</string>
+    <string name="empty_fields">One of fields is empty!</string>
+    <string name="data_changed_successfully">Data changed successfully!</string>
+    <string name="sampleExistOnServer">Current sample has been already uploaded!</string>
+    <string name="sampleExistInDataSource">Current sample has been already downloaded!</string>
+    <string name="successfullyUploaded">Successfully uploaded!</string>
+    <string name="successfullyDownloaded">Successfully downloaded!</string>
+    <string name="upload">Upload</string>
+    <string name="download">Download</string>
+    <string name="path">Path</string>
+    <string name="samplePriorityOutOfBounds">Priority is limited!</string>
+    <string name="album">Album</string>
+    <string name="emptySampleDataSource">No samples for building!</string>
+    <string name="art_pad">Art Pad</string>
+    <string name="saved_successfully">Saved successfully!</string>
+    <string name="priority_out_of_limits">Sorry , priority has limits!</string>
+    <string name="empty_sample_fields">Sample can not have empty fields!</string>
+    <string name="cancel">Cancel</string>
+    <string name="position">position</string>
+    <string name="pending_intent">pending intent</string>
+    <string name="download_status_bar">Download status bar</string>
+    <string name="upload_status_bar">Upload status bar</string>
+    <string name="nothing_cancel">Nothing to cancel!</string>
+    <string name="download_task">download task</string>
+    <string name="upload_task">upload task</string>
+    <string name="download_started">Download started!</string>
+    <string name="upload_started">Upload started!</string>
+    <string name="download_finished">Download has been finished!</string>
+    <string name="upload_finished">Upload has been finished!</string>
+    <string name="download_failed">Download has been failed!</string>
+    <string name="upload_failed">Upload has been failed!</string>
+    <string name="delete">Delete</string>
+    <string name="internet_connection_failed">Oops , looks like you do not have Internet connection!</string>
+    <string name="deleted_successfully">Deleted successfully!</string>
+    <string name="delete_failed">Delete failed!</string>
+    <string name="alert_remove_all">Are you sure , you want to remove all own records?</string>
+    <string name="sure">Sure</string>
+    <string name="server_not_responding">Server is not responding!</string>
+    <string name="you_in_offline_mode">You are in offline mode!</string>
+    <string name="you_in_online_mode">You are in online mode!</string>
+    <string name="player_start">Media player is starting!</string>
+    <string name="player_stop">Media player is stopping!</string>
+    <string name="player_pause">Media player is pausing!</string>
+    <string name="recorder_start">Media recorder is starting!</string>
+    <string name="recorder_pause">Media recorder is pausing!</string>
+    <string name="recorder_stop">Media recorder is stopping!</string>
+    <string name="already_use">Already have used</string>
+    <string name="people">of people</string>
+</resources>
+

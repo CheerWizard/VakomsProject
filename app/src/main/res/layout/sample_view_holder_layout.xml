@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_view_holder">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/delete_btn"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:background="@drawable/ic_delete_btn"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="4dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginStart="4dp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/layout_1"
+            android:layout_weight="1"
+            android:padding="8dp">
+            <TextView
+                android:textSize="@dimen/default_text_size"
+                android:id="@+id/sample_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorPink"
+                android:text="@string/name"/>
+            <!--<TextView-->
+                <!--android:text="@string/duration"-->
+                <!--android:textSize="@dimen/default_text_size"-->
+                <!--android:id="@+id/sample_duration"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center_horizontal"-->
+                <!--android:textColor="@color/colorPink" />-->
+            <LinearLayout
+                android:padding="4dp"
+                android:weightSum="3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:layout_weight="1"
+                    android:id="@+id/upload_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="34dp"
+                    android:text="@string/upload"
+                    android:textSize="@dimen/small_text_size"
+                    android:textColor="@color/colorPink"
+                    android:background="@drawable/background_upload_btn"/>
+                <Button
+                    android:layout_weight="2"
+                    android:id="@+id/download_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="34dp"
+                    android:textColor="@color/colorPink"
+                    android:textSize="@dimen/small_text_size"
+                    android:text="@string/download"
+                    android:background="@drawable/background_download_btn"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/layout_2">
+
+            <TextView
+                android:textColor="@color/colorPink"
+                android:textSize="@dimen/default_text_size"
+                android:id="@+id/sample_priority_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/priority"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:background="@drawable/background_increment_priority_btn"
+                    android:textColor="@color/colorPink"
+                    android:text="@string/plus"
+                    android:textSize="@dimen/default_text_size"
+                    android:id="@+id/increment_priority"
+                    android:layout_width="@dimen/increment_priority_btn_size"
+                    android:layout_height="@dimen/increment_priority_btn_size" />
+
+                <TextView
+                    android:textColor="@color/colorPink"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:text="@string/default_priority"
+                    android:id="@+id/sample_priority"
+                    android:textSize="@dimen/text_size_26"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:textColor="@color/colorPink"
+                    android:background="@drawable/background_decrement_priority_btn"
+                    android:text="@string/minus"
+                    android:textSize="@dimen/default_text_size"
+                    android:id="@+id/decrement_priority"
+                    android:layout_height="@dimen/decrement_priority_btn_size"
+                    android:layout_width="@dimen/decrement_priority_btn_size"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/save_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="34dp"
+                    android:textColor="@color/colorPink"
+                    android:textSize="@dimen/small_text_size"
+                    android:text="@string/save"
+                    android:background="@drawable/background_download_btn"/>
+
+                <Button
+                    android:id="@+id/cancel_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="34dp"
+                    android:textColor="@color/colorPink"
+                    android:textSize="@dimen/small_text_size"
+                    android:text="@string/cancel"
+                    android:background="@drawable/background_upload_btn"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

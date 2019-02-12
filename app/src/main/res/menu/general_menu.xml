@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/remove_all_btn"
+        android:icon="@drawable/ic_remove_all_btn"
+        android:title=""
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/sample_album"
+        android:title="@string/album"/>
+
+    <item
+        android:id="@+id/editor"
+        android:title="@string/editor"/>
+
+    <item
+        android:id="@+id/profile"
+        android:title="@string/profile" />
+
+    <item
+        android:id="@+id/settings"
+        android:title="@string/settings" />
+
+    <item
+        android:id="@+id/exit"
+        android:title="@string/exit"/>
+
+</menu>

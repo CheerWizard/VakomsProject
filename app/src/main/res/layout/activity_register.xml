@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity"
+    android:background="@drawable/background_start_offline_mode">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/margin_login_layout_activity">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_between_text_view_edit_text"
+            android:id="@+id/user_name_text_view"
+            android:text="@string/yourName"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/default_text_size"
+            app:fontFamily="casual"/>
+
+        <EditText
+            android:inputType="textPersonName"
+            android:id="@+id/user_name_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/edit_text_default_height"
+            android:layout_margin="@dimen/margin_between_text_view_edit_text"
+            android:background="@drawable/drawable_edit_text"
+            android:hint="@string/name"
+            android:textColorHint="@color/colorPink"
+            android:textSize="@dimen/default_text_size"
+            android:textColor="@color/colorPink"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_between_text_view_edit_text"
+            android:id="@+id/user_email_text_view"
+            android:text="@string/yourEmail"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/default_text_size"
+            app:fontFamily="casual"/>
+
+        <EditText
+            android:inputType="textEmailAddress"
+            android:id="@+id/user_email_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/edit_text_default_height"
+            android:layout_margin="@dimen/margin_between_text_view_edit_text"
+            android:background="@drawable/drawable_edit_text"
+            android:hint="@string/email"
+            android:textColorHint="@color/colorPink"
+            android:textSize="@dimen/default_text_size"
+            android:textColor="@color/colorPink"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_between_text_view_edit_text"
+            android:id="@+id/user_password_text_view"
+            android:text="@string/yourPassword"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/default_text_size"
+            app:fontFamily="casual"/>
+
+        <EditText
+            android:inputType="textPassword"
+            android:id="@+id/user_password_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/edit_text_default_height"
+            android:layout_margin="@dimen/margin_between_text_view_edit_text"
+            android:background="@drawable/drawable_edit_text"
+            android:hint="@string/password"
+            android:textColorHint="@color/colorPink"
+            android:textSize="@dimen/default_text_size"
+            android:textColor="@color/colorPink"/>
+
+        <Button
+            android:textColor="@color/colorPink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/register_btn"
+            android:text="@string/register"
+            android:textSize="@dimen/default_text_size"
+            android:background="@drawable/background_start_offline_mode"
+            android:textAlignment="center"
+            android:layout_margin="@dimen/margin_between_text_view_edit_text"/>
+
+        <Button
+            android:textColor="@color/colorPink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/already_registered"
+            android:text="@string/already_registered"
+            android:textSize="@dimen/default_text_size"
+            android:background="@drawable/background_start_offline_mode"
+            android:textAlignment="center"
+            android:layout_margin="@dimen/margin_between_text_view_edit_text"/>
+
+        <TextView
+            android:id="@+id/warning_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/small_text_size"
+            android:textAlignment="center"
+            android:text=""
+            android:textColor="@color/colorYellow"/>
+
+    </LinearLayout>
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/change_mode_switch_btn"
+        android:text="@string/onlineMode"
+        android:textSize="@dimen/default_text_size"
+        android:checked="true"
+        app:fontFamily="casual"
+        android:textColor="@color/colorPink"
+        android:id="@+id/change_mode_switch_btn"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>
