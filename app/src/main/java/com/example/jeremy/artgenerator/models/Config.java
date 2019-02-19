@@ -12,6 +12,9 @@ public class Config {
         this.apiUrl = apiUrl;
     }
 
+    public Config() {
+    }
+
     public String getApiUrl() {
         return apiUrl;
     }

@@ -2,13 +2,15 @@ package com.example.jeremy.artgenerator.business_logic.repositories;
 
 import android.os.Handler;
 
+import com.example.jeremy.artgenerator.business_logic.cache.AbstractListCache;
 import com.example.jeremy.artgenerator.business_logic.cache.UserCache;
-import com.example.jeremy.artgenerator.business_logic.cache.UserListCache;
 import com.example.jeremy.artgenerator.business_logic.dao.UserDAO;
-import com.example.jeremy.artgenerator.business_logic.databases.AppDatabaseManager;
 import com.example.jeremy.artgenerator.business_logic.webservices.UserWebService;
 import com.example.jeremy.artgenerator.business_logic.data.User;
-import com.example.jeremy.artgenerator.ui.GlobalPadApplication;
+import com.example.jeremy.artgenerator.constants.ProcessStates;
+import com.example.jeremy.artgenerator.ui.VakomsApplication;
+import com.example.jeremy.artgenerator.utils.containers.GarbageContainer;
+import com.example.jeremy.artgenerator.utils.resolvers.ObjectResolver;
 import com.example.jeremy.artgenerator.wrappers.ExecutorWrapper;
 
 import java.util.List;
@@ -17,22 +19,23 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 public class UserRepository implements IUserRepository {
-
     //dao
     private UserDAO userDAO;
-    //db manager
-    private AppDatabaseManager appDatabaseManager;
     //cache
     private UserCache userCache;
-    private UserListCache userListCache;
+    private AbstractListCache<User> abstractListCache;
     //thread executor
     private ExecutorWrapper executorWrapper;
     //webservice
     private UserWebService userWebService;
     //global vars
-    private MutableLiveData<List<User>> userListMutableLiveData;
-    private MutableLiveData<User> userMutableLiveData;
-    //for dagger2
+    protected LiveData<User> userMutableLiveData;
+    protected LiveData<List<User>> userListLiveData;
+    //handler
+    private Handler handler;
+    //global vars
+    private String password;
+    //:TODO for dagger2
 //    public UserRepository(AppDatabaseManager appDatabaseManager, UserCache userCache, UserListCache userListCache, ExecutorWrapper executorWrapper, UserWebService userWebService) {
 //        this.appDatabaseManager = appDatabaseManager;
 //        userDAO = appDatabaseManager.getAppDatabase().userDAO();
@@ -41,16 +44,18 @@ public class UserRepository implements IUserRepository {
 //        this.executorWrapper = executorWrapper;
 //        this.userWebService = userWebService;
 //    }
-
     public UserRepository() {
-        userDAO = GlobalPadApplication.getInstance().getAppDatabaseManager().getAppDatabase().userDAO();
+        userDAO = VakomsApplication.getInstance().getAppDatabaseManager().getAppDatabase().userDAO();
         userCache = new UserCache();
-        userListCache = new UserListCache();
+        abstractListCache = new AbstractListCache<>();
         executorWrapper = new ExecutorWrapper(4);
         userWebService = new UserWebService();
+        userMutableLiveData = new MutableLiveData<>();
+        userListLiveData = new MutableLiveData<>();
     }
 
     public void setHandler(Handler handler) {
+        this.handler = handler;
         userWebService.setHandler(handler);
     }
 
@@ -59,36 +64,65 @@ public class UserRepository implements IUserRepository {
         executorWrapper.execute(new Runnable() {
             @Override
             public void run() {
-                final List<User> userList = userWebService.getAll();
-                //load to db
-                for (User user : userList) {
-                    if (user != null) userDAO.insert(user);
+                if (abstractListCache.getLiveData() == null) {
+                    final List<User> userList = userWebService.getAll();
+                    //caching data
+                    abstractListCache.setLiveData(new MutableLiveData<>(userList));
                 }
-                //caching data
-                userListCache.setUserListLiveData(userDAO.getUsers());
-                //put in live data
-                userListMutableLiveData = (MutableLiveData<List<User>>) userListCache.getUserListLiveData();
+                userListLiveData = abstractListCache.getLiveData();
             }
         });
-        return userListMutableLiveData;
+        return userListLiveData;
     }
 
     @Override
-    public LiveData<User> getUser(final String email , final String password) {
+    public LiveData<User> getUser(final String email) {
+        executorWrapper.execute(new Runnable() {
+            @Override
+            public void run() {
+                if (!userCache.hasKey(email)) {
+                    //get request
+                    final User userResponse = userWebService.get(email);
+                    //load to db
+                    if (ObjectResolver.isNotNull(userResponse) && ObjectResolver.isNotNull(userResponse.getEmail(), userResponse.getPassword())) {
+                        userDAO.insert(userResponse);
+                        handler.sendEmptyMessage(ProcessStates.Successful.STATUS_LOGIN_SUCCESSFULLY);
+                    }
+                    //caching data
+                    final User user = userDAO.getUser().getValue();
+                    if (ObjectResolver.isNotNull(user) && ObjectResolver.isNotNull(user.getEmail())) userCache.add(userDAO.getUser());
+                }
+                final LiveData<User> userLiveData = userCache.get(email);
+                if (userLiveData != null) userMutableLiveData = userLiveData;
+                //add cache to garbage for further cleaning up
+                GarbageContainer.add("user_cache" , userCache);
+
+            }
+        });
+        return userMutableLiveData;
+    }
+
+    @Override
+    public LiveData<User> getUser() {
+        executorWrapper.execute(new Runnable() {
+            @Override
+            public void run() {
+                userMutableLiveData = userDAO.getUser();
+            }
+        });
+        return userMutableLiveData;
+    }
+
+    @Override
+    public String getPassword(final String email) {
         executorWrapper.execute(new Runnable() {
             @Override
             public void run() {
                 //get request
-                final User user = userWebService.get(email, password);
-                //load to db
-                if (user != null) userDAO.insert(user);
-                //caching data
-                userCache.add(userDAO.getUser(email));
-                //put in live data
-                userMutableLiveData = (MutableLiveData<User>) userCache.get(email);
+                password = userWebService.get(email).getPassword();
             }
         });
-        return userMutableLiveData;
+        return password;
     }
 
     @Override
@@ -101,8 +135,10 @@ public class UserRepository implements IUserRepository {
                 //add to db
                 userDAO.insert(user);
                 //caching data
-                userMutableLiveData.setValue(user);
-                userCache.add(userMutableLiveData);
+                userCache.add(new MutableLiveData<>(user));
+                //add cache to garbage for further cleaning up
+                GarbageContainer.add("user_cache" , userCache);
+
             }
         });
     }
@@ -118,17 +154,15 @@ public class UserRepository implements IUserRepository {
                 userDAO.update(user);
                 //update cache
                 userCache.remove(user.getEmail());
-                userMutableLiveData.setValue(user);
-                userCache.add(userMutableLiveData);
+                userCache.add(new MutableLiveData<>(user));
+                //add cache to garbage for further cleaning up
+                GarbageContainer.add("user_cache" , userCache);
+
             }
         });
     }
 
     @Override
     public void close() {
-        //close db connection
-        appDatabaseManager.close();
-        //clear cache
-        userCache.removeAll();
     }
 }

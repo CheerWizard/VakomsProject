@@ -5,58 +5,56 @@ public final class ProcessStates {
     public static final int STATUS_CONNECTION_FAILED = 0;
 
     public final static class Successful {
-        //recorder statuses
-        public static final int STATUS_RECORDER_START = 1;
-        public static final int STATUS_RECORDER_STOP = 2;
-        //player statuses
-        public static final int STATUS_PLAYER_START = 4;
-        public static final int STATUS_PLAYER_STOP = 5;
-        public static final int STATUS_PLAYER_PAUSE = 6;
-        //rewriter statuses
-        public static final int STATUS_SAMPLE_PRIORITY_CHANGED = 7;
-        public static final int STATUS_SAMPLE_FIELDS_CHANGED = 8;
-        public static final int STATUS_PROFILE_FIELDS_CHANGED = 9;
+        //profile
+        public static final int STATUS_PROFILE_FIELDS_CHANGED = 1;
         //login statuses
-        public static final int STATUS_LOGIN_SUCCESSFULLY = 12;
+        public static final int STATUS_LOGIN_SUCCESSFULLY = 2;
+        public static final int STATUS_LOGIN_VALID = 3;
         //register statuses
-        public static final int STATUS_REGISTER_SUCCESSFULLY = 13;
+        public static final int STATUS_REGISTER_VALID = 4;
+        public static final int STATUS_REGISTER_SUCCESSFULLY = 5;
         //download statuses
-        public static final int STATUS_DOWNLOAD_START = 14;
-        public static final int STATUS_DOWNLOAD_FINISH = 15;
+        public static final int STATUS_DOWNLOAD_SUCCESSFULLY = 6;
         //upload statuses
-        public static final int STATUS_UPLOAD_START = 16;
-        public static final int STATUS_UPLOAD_FINISH = 17;
+        public static final int STATUS_UPLOAD_SUCCESSFULLY = 7;
         //server statuses
-        public static final int STATUS_DELETE_SUCCESS = 18;
+        public static final int STATUS_DELETE_SUCCESS = 8;
+        public static final int STATUS_UPDATE_SUCCESS = 9;
+        //fragment statuses
+        public static final int STATUS_MOVE_TO_SIGN_IN_FRAGMENT = 10;
+        public static final int STATUS_MOVE_TO_SIGN_UP_FRAGMENT = 11;
+        public static final int STATUS_MOVE_TO_FORGOT_PASSWORD_FRAGMENT = 12;
+        public static final int STATUS_MOVE_TO_SLIDESHOW_FRAGMENT = 13;
+        //restore statuses
+        public static final int STATUS_RESTORE_PASSWORD_SUCCESS = 14;
+        //intent statuses
+        public static final int STATUS_CAMERA_REQUEST = 15;
+        public static final int STATUS_CALL_REQUEST = 16;
+        public static final int STATUS_GALLERY_REQUEST = 17;
     }
 
     public final static class Failed {
-        //recorder statuses
-        public static final int STATUS_RECORD_NOT_FOUND = -1;
-        //player statuses
-        public static final int STATUS_SOUND_NOT_FOUND = -2;
-        //rewriter statuses
-        public static final int STATUS_SAMPLE_PRIORITY_OUT_OF_BOUNDS = -3;
-        public static final int STATUS_SAMPLE_FIELDS_EMPTY = -4;
-        public static final int STATUS_PROFILE_FIELDS_EMPTY = -5;
+        //profile
+        public static final int STATUS_PROFILE_FIELDS_EMPTY = -1;
         //login statuses
-        public static final int STATUS_LOGIN_GET_RESPONSE_FAILED = -6;
-        public static final int STATUS_LOGIN_FIELDS_EMPTY = -7;
-        public static final int STATUS_LOGIN_FIELDS_NOT_VALID = -8;
+        public static final int STATUS_LOGIN_GET_RESPONSE_FAILED = -2;
+        public static final int STATUS_LOGIN_FIELDS_EMPTY = -3;
+        public static final int STATUS_LOGIN_FIELDS_NOT_VALID = -4;
         //register statuses
-        public static final int STATUS_REGISTER_GET_RESPONSE_FAILED = -9;
-        public static final int STATUS_REGISTER_FIELDS_EMPTY = -10;
-        public static final int STATUS_REGISTER_FIELDS_NOT_VALID = -11;
-        public static final int STATUS_REGISTER_POST_RESPONSE_FAILED = -12;
+        public static final int STATUS_REGISTER_GET_RESPONSE_FAILED = -5;
+        public static final int STATUS_REGISTER_FIELDS_EMPTY = -6;
+        public static final int STATUS_REGISTER_FIELDS_NOT_VALID = -7;
+        public static final int STATUS_REGISTER_POST_RESPONSE_FAILED = -8;
         //download statuses
-        public static final int STATUS_DOWNLOAD_FAILED = -13;
+        public static final int STATUS_DOWNLOAD_FAILED = -9;
         //upload statuses
-        public static final int STATUS_UPLOAD_FAILED = -14;
+        public static final int STATUS_UPLOAD_FAILED = -10;
         //server statuses
-        public static final int STATUS_DELETE_FAILED = -15;
-        public static final int STATUS_UPDATE_FAILED = -16;
-        //pending intent statuses
-        public static final int STATUS_PENDING_INTENT_CANCELED = -17;
+        public static final int STATUS_DELETE_FAILED = -11;
+        public static final int STATUS_UPDATE_FAILED = -12;
+        //restore statuses
+        public static final int STATUS_RESTORE_PASSWORD_FAILED = -13;
+        public static final int STATUS_RESTORE_PASSWORD_EMPTY_FIELD = -14;
     }
 
 }

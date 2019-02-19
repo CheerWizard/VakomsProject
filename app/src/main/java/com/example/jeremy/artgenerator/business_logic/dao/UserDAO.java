@@ -16,24 +16,27 @@ import static androidx.room.OnConflictStrategy.REPLACE;
 
 @Dao
 public interface UserDAO {
-    //insert note to table
     @Insert(onConflict = REPLACE)
     void insert(User user);
-    //update note for table
+
     @Update
     void update(User user);
-    //get all notes from table
+
     @Query("SELECT * FROM " + SqlConstants.Tables.USER_TB_NAME)
     LiveData<List<User>> getUsers();
-    @Query("SELECT * FROM " + SqlConstants.Tables.USER_TB_NAME + " WHERE user_email = :email")
-    LiveData<User> getUser(String email);
-    //remove appropriate note from table
+
+    @Query("SELECT * FROM " + SqlConstants.Tables.USER_TB_NAME)
+    LiveData<User> getUser();
+
+    @Query("SELECT user_id FROM " + SqlConstants.Tables.USER_TB_NAME + " WHERE user_email = :user_email")
+    int getUserId(String user_email);
+
     @Delete
     void remove(User user);
-    //remove note by id from table
+
     @Query("DELETE FROM " + SqlConstants.Tables.USER_TB_NAME + " WHERE user_id = :id")
     void remove(int id);
-    //remove all notes from table
+
     @Query("DELETE FROM " + SqlConstants.Tables.USER_TB_NAME)
     void removeAll();
 }

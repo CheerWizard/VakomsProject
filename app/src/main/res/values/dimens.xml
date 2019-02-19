@@ -17,4 +17,6 @@
     <dimen name="small_text_size">12sp</dimen>
     <dimen name="increment_priority_btn_size">42dp</dimen>
     <dimen name="decrement_priority_btn_size">42dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
 </resources>

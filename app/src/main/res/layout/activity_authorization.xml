@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activities.AuthorizationActivity"
+    android:background="@drawable/background_start_offline_mode"
+    android:id="@+id/fragment_container">
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/change_mode_switch_btn"
+        android:text="@string/onlineMode"
+        android:textSize="@dimen/default_text_size"
+        android:checked="true"
+        app:fontFamily="casual"
+        android:textColor="@color/colorPink"
+        android:id="@+id/change_mode_switch_btn"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

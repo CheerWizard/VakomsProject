@@ -1,5 +1,7 @@
 package com.example.jeremy.artgenerator;
 
+import android.os.Handler;
+
 import com.example.jeremy.artgenerator.constants.AnimationType;
 
 public interface IContract {
@@ -12,5 +14,7 @@ public interface IContract {
     interface IViewModel {
         //involves all view models
         void onClose();
+        void setHandler(Handler handler);
+        void onTouchDeleteAllBtn();
     }
 }

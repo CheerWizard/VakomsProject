@@ -9,13 +9,13 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.jeremy.artgenerator.IContract;
 import com.example.jeremy.artgenerator.R;
 import com.example.jeremy.artgenerator.business_logic.data.User;
 import com.example.jeremy.artgenerator.constants.AnimationType;
-import com.example.jeremy.artgenerator.constants.SystemModes;
-import com.example.jeremy.artgenerator.utils.cache.SystemModeCache;
+import com.example.jeremy.artgenerator.constants.ProcessStates;
 import com.example.jeremy.artgenerator.view_models.UserViewModel;
 
 import java.util.List;
@@ -26,27 +26,25 @@ import androidx.lifecycle.ViewModelProviders;
 
 public class LauncherActivity extends AppCompatActivity implements IContract.IView,
         View.OnClickListener , CompoundButton.OnCheckedChangeListener , Handler.Callback{
-
+    //view model
     private UserViewModel userViewModel;
-
+    //views
     private Switch changeModeSwitch;
     private Button startButton;
-
     private TextView countTextView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_start_offline_mode);
+        setContentView(R.layout.activity_launcher);
         userViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
         initViews();
     }
 
     @Override
     protected void onResume() {
+        super.onResume();
         initVars();
         initListeners();
-        super.onResume();
     }
 
     @Override
@@ -55,6 +53,8 @@ public class LauncherActivity extends AppCompatActivity implements IContract.IVi
     }
 
     private void initVars() {
+        final Handler handler = new Handler(this);
+        userViewModel.setHandler(handler);
         userViewModel.getUserListLiveData().observe(this, new Observer<List<User>>() {
             @Override
             public void onChanged(List<User> users) {
@@ -64,12 +64,11 @@ public class LauncherActivity extends AppCompatActivity implements IContract.IVi
     }
 
     private void initViews() {
-        final TextView alreadyUseTextView = findViewById(R.id.already_used_text_view);
         final TextView peopleTextView = findViewById(R.id.people_text_view);
         countTextView = findViewById(R.id.count_text_view);
 
-        changeModeSwitch = (Switch) findViewById(R.id.change_mode_switch_btn);
-        startButton = (Button) findViewById(R.id.startBtn);
+        changeModeSwitch = findViewById(R.id.change_mode_switch_btn);
+        startButton = findViewById(R.id.startBtn);
     }
 
     private void initListeners() {
@@ -79,28 +78,27 @@ public class LauncherActivity extends AppCompatActivity implements IContract.IVi
 
     @Override
     public void animate(AnimationType animationType) {
-
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.startBtn:
-                startActivity(new Intent(this , MusicEditorActivity.class));
+                startActivity(new Intent(this , MainActivity.class));
                 break;
         }
     }
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        if (changeModeSwitch.isChecked()) SystemModeCache.setSystem_mode(SystemModes.OFFLINE_MODE);
+        if (changeModeSwitch.isChecked()) startActivity(new Intent(this , AuthorizationActivity.class));
     }
 
     @Override
     public boolean handleMessage(Message msg) {
         switch (msg.what) {
-            case SystemModes.ONLINE_MODE:
-                startActivity(new Intent(this , LoginActivity.class));
+            case ProcessStates.STATUS_CONNECTION_FAILED:
+                Toast.makeText(this, R.string.internet_connection_failed, Toast.LENGTH_LONG).show();
                 break;
         }
         return false;

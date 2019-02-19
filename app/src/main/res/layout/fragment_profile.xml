@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_start_offline_mode">
+
+    <LinearLayout
+        android:id="@+id/layout_1"
+        android:weightSum="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/margin_login_layout_activity">
+
+        <LinearLayout
+            android:id="@+id/layout_2"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="7">
+
+            <EditText
+                android:layout_weight="1"
+                android:inputType="textPersonName"
+                android:id="@+id/user_name_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edit_text_default_height"
+                android:layout_margin="@dimen/margin_between_text_view_edit_text"
+                android:hint="@string/name"
+                android:background="@drawable/drawable_edit_text"
+                android:textColorHint="@color/colorPink"
+                android:textSize="@dimen/default_text_size"
+                android:textColor="@color/colorPink"/>
+
+            <EditText
+                android:layout_weight="1"
+                android:inputType="textPersonName"
+                android:id="@+id/login_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edit_text_default_height"
+                android:layout_margin="@dimen/margin_between_text_view_edit_text"
+                android:hint="@string/login"
+                android:background="@drawable/drawable_edit_text"
+                android:textColorHint="@color/colorPink"
+                android:textSize="@dimen/default_text_size"
+                android:textColor="@color/colorPink"/>
+
+            <EditText
+                android:layout_weight="1"
+                android:inputType="textEmailAddress"
+                android:id="@+id/user_email_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edit_text_default_height"
+                android:layout_margin="@dimen/margin_between_text_view_edit_text"
+                android:background="@drawable/drawable_edit_text"
+                android:textColorHint="@color/colorPink"
+                android:hint="@string/email"
+                android:textSize="@dimen/default_text_size"
+                android:textColor="@color/colorPink"/>
+
+            <EditText
+                android:layout_weight="1"
+                android:inputType="textPassword"
+                android:id="@+id/user_password_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edit_text_default_height"
+                android:layout_margin="@dimen/margin_between_text_view_edit_text"
+                android:background="@drawable/drawable_edit_text"
+                android:hint="@string/password"
+                android:textColorHint="@color/colorPink"
+                android:textSize="@dimen/default_text_size"
+                android:textColor="@color/colorPink"/>
+
+            <LinearLayout
+                android:layout_margin="0dp"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/camera_float_btn"
+                    app:fabSize="normal"
+                    android:src="@drawable/ic_menu_camera"/>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/call_btn"
+                    app:fabSize="normal"
+                    android:src="@drawable/ic_call"/>
+
+            </LinearLayout>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/gallery_float_btn"
+                android:layout_gravity="center_horizontal"
+                app:fabSize="normal"
+                android:src="@drawable/ic_menu_gallery"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="3">
+
+            <ImageView
+                android:id="@+id/avatar_image_view"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_unknown_person"/>
+
+            <EditText
+                android:layout_weight="1"
+                android:inputType="textWebEditText"
+                android:id="@+id/website_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edit_text_default_height"
+                android:layout_margin="@dimen/margin_between_text_view_edit_text"
+                android:background="@drawable/drawable_edit_text"
+                android:hint="@string/website"
+                android:textColorHint="@color/colorPink"
+                android:textSize="@dimen/default_text_size"
+                android:textColor="@color/colorPink"/>
+
+            <EditText
+                android:layout_weight="1"
+                android:inputType="phone"
+                android:id="@+id/phone_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edit_text_default_height"
+                android:layout_margin="@dimen/margin_between_text_view_edit_text"
+                android:background="@drawable/drawable_edit_text"
+                android:hint="@string/phone"
+                android:textColorHint="@color/colorPink"
+                android:textSize="@dimen/default_text_size"
+                android:textColor="@color/colorPink"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:textColor="@color/colorPink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/save_profile_data_btn"
+        android:text="@string/save"
+        android:textSize="@dimen/default_text_size"
+        android:background="@drawable/background_start_offline_mode"
+        android:textAlignment="center"
+        android:layout_margin="8dp"
+        android:layout_below="@id/layout_1"/>
+
+    <TextView
+        android:id="@+id/warning_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textAlignment="center"
+        android:layout_margin="8dp"
+        android:layout_below="@id/save_profile_data_btn"
+        android:text=""
+        android:textColor="@color/colorYellow"/>
+
+</RelativeLayout>

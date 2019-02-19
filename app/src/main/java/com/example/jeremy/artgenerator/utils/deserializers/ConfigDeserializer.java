@@ -2,7 +2,7 @@ package com.example.jeremy.artgenerator.utils.deserializers;
 
 import com.example.jeremy.artgenerator.constants.FileNames;
 import com.example.jeremy.artgenerator.models.Config;
-import com.example.jeremy.artgenerator.ui.GlobalPadApplication;
+import com.example.jeremy.artgenerator.ui.VakomsApplication;
 import com.google.gson.Gson;
 
 import java.io.FileInputStream;
@@ -12,12 +12,12 @@ import java.io.InputStreamReader;
 
 public final class ConfigDeserializer {
 
-    private static Config config;
+    private static Config config = new Config("https://jsonplaceholder.typicode.com/");
 
     private ConfigDeserializer() {}
 
     public static Config getConfig() {
-        if (config == null) deserialize();
+        deserialize();
         return config;
     }
 
@@ -26,7 +26,7 @@ public final class ConfigDeserializer {
         FileInputStream fileInputStream = null;
         InputStreamReader inputStreamReader = null;
         try {
-            fileInputStream = GlobalPadApplication.getInstance().openFileInput(FileNames.CONFIG_JSON);
+            fileInputStream = VakomsApplication.getInstance().openFileInput(FileNames.CONFIG_JSON);
             inputStreamReader = new InputStreamReader(fileInputStream);
             config = gson.fromJson(inputStreamReader , Config.class);
         } catch (FileNotFoundException e) {
